@@ -40,3 +40,9 @@ models:
     # Applies to all files under models/example/
     example:
       +materialized: table
+    bronze-layer:
+      +materialized: table
+    silver-layer:
+      +materialized: table
+    gold-layer:
+      +materialized: incremental
