@@ -1,0 +1,326 @@
+version: 2
+
+models:
+  - name: br_distribution_centers
+    description: "Bronze layer for distribution centers data"
+    columns:
+      - name: id
+        description: "The unique identifier for each distribution center"
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: "The name of the distribution center"
+        tests:
+          - unique
+          - not_null
+      - name: latitude
+        description: "Latitude coordinate of the distribution center"
+        tests:
+          - not_null
+      - name: longitude
+        description: "Longitude coordinate of the distribution center"
+        tests:
+          - not_null
+
+  - name: br_events
+    description: "Bronze layer for events data"
+    columns:
+      - name: id
+        description: "The unique identifier for each event"
+        tests:
+          - unique
+          - not_null
+      - name: user_id
+        description: "Identifier for the user associated with the event"
+        tests:
+          - not_null
+      - name: sequence_number
+        description: "Sequence number of the event"
+        tests:
+          - not_null
+      - name: session_id
+        description: "Identifier for the session during which the event occurred"
+        tests:
+          - not_null
+      - name: created_at
+        description: "Timestamp indicating when the event took place"
+        tests:
+          - not_null
+      - name: ip_address
+        description: "IP address from which the event originated"
+        tests:
+          - not_null
+      - name: city
+        description: "City where the event occurred"
+        tests:
+          - not_null
+      - name: state
+        description: "State where the event occurred"
+        tests:
+          - not_null
+      - name: postal_code
+        description: "Postal code of the event location"
+        tests:
+          - not_null
+      - name: browser
+        description: "Web browser used during the event"
+        tests:
+          - not_null
+      - name: traffic_source
+        description: "Source of the traffic leading to the event"
+        tests:
+          - not_null
+      - name: uri
+        description: "Uniform Resource Identifier associated with the event"
+        tests:
+          - not_null
+      - name: event_type
+        description: "Type of event recorded"
+        tests:
+          - not_null
+
+  - name: br_inventory_items
+    description: "Bronze layer for inventory items data"
+    columns:
+      - name: id
+        description: "The unique identifier for each inventory item"
+        tests:
+          - unique
+          - not_null
+      - name: product_id
+        description: "Identifier for the associated product"
+        tests:
+          - not_null
+      - name: created_at
+        description: "Timestamp indicating when the inventory item was created"
+        tests:
+          - not_null
+      - name: sold_at
+        description: "Timestamp indicating when the item was sold"
+        tests:
+          - not_null
+      - name: cost
+        description: "Cost of the inventory item"
+        tests:
+          - not_null
+      - name: product_category
+        description: "Category of the associated product"
+        tests:
+          - not_null
+      - name: product_name
+        description: "Name of the associated product"
+        tests:
+          - not_null
+      - name: product_brand
+        description: "Brand of the associated product"
+        tests:
+          - not_null
+      - name: product_retail_price
+        description: "Retail price of the associated product"
+        tests:
+          - not_null
+      - name: product_department
+        description: "Department to which the product belongs"
+        tests:
+          - not_null
+      - name: product_sku
+        description: "Stock Keeping Unit (SKU) of the product"
+        tests:
+          - not_null
+      - name: product_distribution_center_id
+        description: "Identifier for the distribution center associated with the product"
+        tests:
+          - not_null
+
+  - name: br_order_items
+    description: "Bronze layer for order items data"
+    columns:
+      - name: id
+        description: "The unique identifier for each order item"
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: "Identifier for the associated order"
+        tests:
+          - not_null
+      - name: user_id
+        description: "Identifier for the user who placed the order"
+        tests:
+          - not_null
+      - name: product_id
+        description: "Identifier for the associated product"
+        tests:
+          - not_null
+      - name: inventory_item_id
+        description: "Identifier for the associated inventory item"
+        tests:
+          - not_null
+      - name: status
+        description: "Status of the order item"
+        tests:
+          - not_null
+      - name: created_at
+        description: "Timestamp indicating when the order item was created"
+        tests:
+          - not_null
+      - name: shipped_at
+        description: "Timestamp indicating when the order item was shipped"
+        tests:
+          - not_null
+      - name: delivered_at
+        description: "Timestamp indicating when the order item was delivered"
+        tests:
+          - not_null
+      - name: returned_at
+        description: "Timestamp indicating when the order item was returned"
+        tests:
+          - not_null
+
+  - name: br_orders
+    description: "Bronze layer for orders data"
+    columns:
+      - name: order_id
+        description: "The unique identifier for each order"
+        tests:
+          - unique
+          - not_null
+      - name: user_id
+        description: "Identifier for the user who placed the order"
+        tests:
+          - not_null
+      - name: status
+        description: "Status of the order"
+        tests:
+          - not_null
+      - name: gender
+        description: "Gender information of the user"
+        tests:
+          - not_null
+      - name: created_at
+        description: "Timestamp indicating when the order was created"
+        tests:
+          - not_null
+      - name: returned_at
+        description: "Timestamp indicating when the order was returned"
+        tests:
+          - not_null
+      - name: shipped_at
+        description: "Timestamp indicating when the order was shipped"
+        tests:
+          - not_null
+      - name: delivered_at
+        description: "Timestamp indicating when the order was delivered"
+        tests:
+          - not_null
+      - name: num_of_item
+        description: "Number of items in the order"
+        tests:
+          - not_null
+
+  - name: br_products
+    description: "Bronze layer for products data"
+    columns:
+      - name: id
+        description: "The unique identifier for each product"
+        tests:
+          - unique
+          - not_null
+      - name: cost
+        description: "Cost of the product"
+        tests:
+          - not_null
+      - name: category
+        description: "Category to which the product belongs"
+        tests:
+          - not_null
+      - name: name
+        description: "Name of the product"
+        tests:
+          - not_null
+      - name: brand
+        description: "Brand of the product"
+        tests:
+          - not_null
+      - name: retail_price
+        description: "Retail price of the product"
+        tests:
+          - not_null
+      - name: department
+        description: "Department to which the product belongs"
+        tests:
+          - not_null
+      - name: sku
+        description: "Stock Keeping Unit (SKU) of the product"
+        tests:
+          - not_null
+      - name: distribution_center_id
+        description: "Identifier for the distribution center associated with the product"
+        tests:
+          - not_null
+
+  - name: br_users
+    description: "Bronze layer for users data"
+    columns:
+      - name: id
+        description: "The unique identifier for each user"
+        tests:
+          - unique
+          - not_null
+      - name: first_name
+        description: "First name of the user"
+        tests:
+          - not_null
+      - name: last_name
+        description: "Last name of the user"
+        tests:
+          - not_null
+      - name: email
+        description: "Email address of the user"
+        tests:
+          - not_null
+      - name: age
+        description: "Age of the user"
+        tests:
+          - not_null
+      - name: gender
+        description: "Gender of the user"
+        tests:
+          - not_null
+      - name: state
+        description: "State where the user is located"
+        tests:
+          - not_null
+      - name: street_address
+        description: "Street address of the user"
+        tests:
+          - not_null
+      - name: postal_code
+        description: "Postal code of the user"
+        tests:
+          - not_null
+      - name: city
+        description: "City where the user is located"
+        tests:
+          - not_null
+      - name: country
+        description: "Country where the user is located"
+        tests:
+          - not_null
+      - name: latitude
+        description: "Latitude coordinate of the user"
+        tests:
+          - not_null
+      - name: longitude
+        description: "Longitude coordinate of the user"
+        tests:
+          - not_null
+      - name: traffic_source
+        description: "Source of the traffic leading to the user"
+        tests:
+          - not_null
+      - name: created_at
+        description: "Timestamp indicating when the user account was created"
+        tests:
+          - not_null
