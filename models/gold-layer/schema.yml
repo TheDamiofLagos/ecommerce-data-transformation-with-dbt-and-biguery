@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: gl_retention
+    description: "Gold layer for retention analysis"
+    columns:
+      - name: customerID
+        description: "The unique identifier for each customer"
+        tests:
+          - not_null
+      - name: first_name
+        description: "First name of the customer"
+        tests:
+          - not_null
+      - name: last_name
+        description: "Last name of the customer"
+        tests:
+          - not_null
+      - name: transactionDate
+        description: "The date of the transaction"
+        tests:
+          - not_null
+      - name: transactionNumber
+        description: "The number of the transaction for the customer"
+        tests:
+          - not_null
+      - name: firstTransactionDate
+        description: "The date of the customer's first transaction"
+        tests:
+          - not_null

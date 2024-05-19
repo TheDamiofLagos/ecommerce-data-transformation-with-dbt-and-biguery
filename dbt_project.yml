@@ -45,4 +45,4 @@ models:
     silver-layer:
       +materialized: table
     gold-layer:
-      +materialized: incremental
+      +materialized: table
