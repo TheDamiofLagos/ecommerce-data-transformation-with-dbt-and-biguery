@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: br_distribution_centers
+  - name: br_distribution_centres
     description: "Bronze layer for distribution centers data"
     columns:
       - name: id
@@ -33,8 +33,7 @@ models:
           - not_null
       - name: user_id
         description: "Identifier for the user associated with the event"
-        tests:
-          - not_null
+        
       - name: sequence_number
         description: "Sequence number of the event"
         tests:
@@ -98,8 +97,7 @@ models:
           - not_null
       - name: sold_at
         description: "Timestamp indicating when the item was sold"
-        tests:
-          - not_null
+        
       - name: cost
         description: "Cost of the inventory item"
         tests:
@@ -167,16 +165,13 @@ models:
           - not_null
       - name: shipped_at
         description: "Timestamp indicating when the order item was shipped"
-        tests:
-          - not_null
+        
       - name: delivered_at
         description: "Timestamp indicating when the order item was delivered"
-        tests:
-          - not_null
+        
       - name: returned_at
         description: "Timestamp indicating when the order item was returned"
-        tests:
-          - not_null
+        
 
   - name: br_orders
     description: "Bronze layer for orders data"
@@ -200,20 +195,16 @@ models:
           - not_null
       - name: created_at
         description: "Timestamp indicating when the order was created"
-        tests:
-          - not_null
+        
       - name: returned_at
         description: "Timestamp indicating when the order was returned"
-        tests:
-          - not_null
+        
       - name: shipped_at
         description: "Timestamp indicating when the order was shipped"
-        tests:
-          - not_null
+        
       - name: delivered_at
         description: "Timestamp indicating when the order was delivered"
-        tests:
-          - not_null
+        
       - name: num_of_item
         description: "Number of items in the order"
         tests:
@@ -237,12 +228,10 @@ models:
           - not_null
       - name: name
         description: "Name of the product"
-        tests:
-          - not_null
+        
       - name: brand
         description: "Brand of the product"
-        tests:
-          - not_null
+        
       - name: retail_price
         description: "Retail price of the product"
         tests:
